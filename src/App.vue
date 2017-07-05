@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-default navbar-fixed-top">
-      <router-link to="/hello" class="btn btn-default navbar-btn">To hello</router-link>
-      <!-- <router-link to="detail" class="btn btn-default navbar-btn">To datail</router-link> -->
+      <router-link to="/" class="btn btn-default navbar-btn">To hello</router-link>
       <router-link to="/List" class="btn btn-default navbar-btn">To list</router-link>
     </nav>
     <router-view></router-view>
@@ -29,5 +28,9 @@ a,
 a:hover,
 a:active{
   color:#2c3e50
+}
+
+article{
+  text-align: left;
 }
 </style>

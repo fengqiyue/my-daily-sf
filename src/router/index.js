@@ -8,10 +8,6 @@ import Content from '@/components/Content'
 
 Vue.use(Router)
 
-const x = {
-  template: '<div>Content {{ $route.params.id }}</div>'
-}
-
 export default new Router({
   routes: [
     {

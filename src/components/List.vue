@@ -3,8 +3,13 @@
     <div class="container">
       <div class="row">
         <h1>{{title}}</h1>
-        <div v-for="r in rows" class="item" >
-          <router-link :to="'c/' + r.id">
+        <div v-for="r in rows" :key="r.id" class="item" >
+
+          <router-link :to="'c/' + r.object.id " v-if="r.object">
+            <p><strong>{{r.title}}</strong></p>
+            <p>{{r.description}}</p>
+          </router-link>
+          <router-link :to="'c/' + r.id " v-else>
             <p><strong>{{r.title}}</strong></p>
             <p>{{r.description}}</p>
           </router-link>
@@ -16,18 +21,21 @@
 
 <script>
 export default {
-  name: 'detail',
+  name: 'list',
   data () {
     return {
       title: '列表',
       content: 'content',
-      rows:'1'
+      rows: {},
+      loading: true
     }
   },
   created: function(){
     let listApi = "https://api.segmentfault.com/news/newest"
     this.$http.get(listApi).then( res => {
       this.rows = res.data.data.rows
+      this.loading  = false
+      console.log(this.rows[0].object.id);
     })
   }
 }
